@@ -1,0 +1,28 @@
+{
+  "name": "project_01",
+  "description": "a movie",
+  "main": "app.js",
+  "authors": [
+    "\"mark\""
+  ],
+  "license": "ISC",
+  "keywords": [
+    "''\u001b[Dnode.js'"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

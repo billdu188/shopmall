@@ -1,0 +1,35 @@
+{
+  "name": "shopmall",
+  "version": "0.0.1",
+  "description": "\"\"\u001b[Dnull\"\u001b[A\u001b[A\u001b[B\u001b[B",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "moment": "^2.11.2",
+    "mongoose": "^4.4.6",
+    "serve-static": "^1.10.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "grunt-concurrent": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "''\u001b[Dnode.js'"
+  ],
+  "author": "\"dubin\"",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billdu188/shopmall.git"
+  },
+  "bugs": {
+    "url": "https://github.com/billdu188/shopmall/issues"
+  },
+  "homepage": "https://github.com/billdu188/shopmall#readme"
+}
