@@ -1,0 +1,106 @@
+extend ../layout
+
+block content
+	.container
+		.row
+			p 订单信息
+			table.table.table-hover.table-bordered
+				thead
+					tr
+						th 商品
+						th 单价
+						th 数量
+						th 小计
+						th 操作
+				tbody
+					if agoods.cake && agoods.cake.length > 0
+						each item in agoods.cake
+							tr(class="item-id-#{item._id}")
+								td #{item.name}
+								td ￥#{item.price}元
+								td
+									button.btn.btn-default.plus(type="button", data-id="#{item._id}")
+										span.glyphicon.glyphicon-plus
+									input(class="numGoods-#{item._id}", type="text", value="#{item.num}",style="width:30px; text-align:center", readonly="readonly")
+									button.btn.btn-default.minus(type="button", data-id="#{item._id}")
+										span.glyphicon.glyphicon-minus
+								td.oneTotal(class="oneTotal-#{item._id}") ￥#{item.price*item.num}元
+								td
+									button.btn.btn-danger.del(type="button", data-id="#{item._id}") 删除
+			p 总计
+				span.sumValue #{user.sumValue}元
+			p 送货信息
+			.infolist
+				if user.deliveinfo && user.deliveinfo.length > 0
+					each item in user.deliveinfo
+						ul.info(class="info-#{item._id}",style="width:200px;height:100px;display:inline-block;background:#F0F0F0;")
+							li 姓名：#{item.name}
+							li 联系方式：#{item.phone}
+							li 地址：#{item.address}
+							input.remInfo(type="button",data-id="#{item._id}", value="删除")
+			.form.form-horizontal#deliveinfo
+				.form-group
+					label.col-sm-2.control-label 送货地址
+					.col-sm-8
+						input(type="text",name="info[address]",placeholder="详细地址",style="border:none; outline:none;height:30px;line-height:30px;")
+				.form-group
+					label.col-sm-2.control-label 收货人
+					.col-sm-6
+						input(type="text",name="info[name]",placeholder="姓名",style="border:none; outline:none;height:30px;line-height:30px;")
+				.form-group
+					label.col-sm-2.control-label 联系手机
+					.col-sm-6
+						input(type="text",name="info[phone]",placeholder="输入手机号",style="border:none; outline:none;height:30px;line-height:30px;")
+				.form-group
+					.col-sm-offset-2.col-sm-10
+						button.saveinfo 保存信息
+				.form-group.checkbox
+					label.col-sm-2.control-label 开发票
+					label.radio-inline
+						input.offerbill(type="checkbox")
+						|开发票
+			.form.form-horizontal.bill(style="display:none;")
+				.form-group
+					label.col-sm-2.control-label 发票类型
+					.col-sm-8
+						p 普通发票
+				.form-group.checkbox
+					label.col-sm-2.control-label 发票抬头
+					label.radio-inline
+						input(type="radio" name="info[billHead]")
+						|个人
+					label.radio-inline
+						input(type="radio" name="info[billHead]")
+						|企业
+				.form-group
+					label.col-sm-2.control-label 顾客姓名
+					.col-sm-6
+						input(type="text",name="info[billName]",placeholder="顾客姓名",style="border:none; outline:none;height:30px;line-height:30px;")
+				.form-group.checkbox
+					label.col-sm-2.control-label 发票内容
+					label.radio-inline
+						input(type="radio" name="info[billContent]") 
+						| 蛋糕
+					label.radio-inline
+						input(type="radio" name="info[billContent]") 
+						| 食品	
+			.form-group.checkbox
+				label.col-sm-2.control-label 付款方式：
+				label.radio-inline
+					input(type="radio" name="info[payment]" value="cash") 
+					| 货到付款
+				label.radio-inline
+					input(type="radio" name="info[payment]" value="Alipay") 
+					| 支付宝	
+				label.radio-inline
+					input(type="radio" name="info[payment]" value="Wechatpay") 
+					| 微信
+			.total(style="float:right;margin:30px 10px;")
+				p 商品总计：#{user.sumValue}元
+				p 优惠折扣：#{order.coupon}元
+				p 您总共需要支付：#{user.sumValue}元
+					span 
+			.form-group(style="margin-left:850px;")
+				.col-sm-offset-2.col-sm-10
+					button.btn.btn-default(type="submit",style="margin-bottom:10px;") 确认订单
+	script(src="/build/admin.min.js")

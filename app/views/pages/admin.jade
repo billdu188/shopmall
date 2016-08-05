@@ -1,0 +1,77 @@
+extends ../layout
+
+block content
+	.container
+		.row
+			form.form-horizontal(method="post", action="/admin/cake/new")
+				.form-group
+					label.col-sm-2.control-label 数据同步
+					.col-sm-10
+						input#douban(type="text") 
+				if cake._id
+					input(type="hidden", name="cake[_id]", value="#{cake._id}")
+				//-.form-group
+					label.col-sm-2.control-label(for="inputCategory") 添加电影分类
+					.col-sm-4
+						input#inputCategory.form-control(type="text",name="cake[category]", value=cake.category) 
+				.form-group
+					label.col-sm-2.control-label 分类选择
+					each cat in categories
+						label.radio-inline
+							if cake._id
+								input#inputCategory(type="checkbox", name="cake[category]", value="#{cat._id}", checked=cat._id.toString()==cake.category.toString()) 
+								| #{cat.name}
+							else
+								input#inputCategory(type="checkbox", name="cake[category]", value="#{cat._id}") 
+								| #{cat.name}
+				.form-group
+					label.col-sm-2.control-label(for="inputName") 蛋糕名称
+					.col-sm-10
+						input#inputName.form-control(type="text",name="cake[name]")
+				.form-group
+					label.col-sm-2.control-label(for="inputIntro") 简介
+					.col-sm-10
+						input#inputIntro.form-control(type="text",name="cake[intro]")
+				.form-group
+					label.col-sm-2.control-label(for="inputMaterial") 原料
+					.col-sm-10
+						input#inputMaterial.form-control(type="text",name="cake[material]")
+				.form-group
+					label.col-sm-2.control-label(for="inputPrice") 价格
+					.col-sm-10
+						input#inputPrice.form-control(type="text",name="cake[price]")
+				.form-group
+					label.col-sm-2.control-label(for="inputGoods") 商品展示
+					.col-sm-10
+						input#inputGoods.form-control(type="text",name="cake[poster]")
+				.form-group
+					label.col-sm-2.control-label(for="inputDetailMain") 详情页主图
+					.col-sm-10
+						input#inputDetailmain.form-control(type="text",name="cake[detail_main]")
+				.form-group
+					label.col-sm-2.control-label(for="inputDetailImg1") 详情页副图1
+					.col-sm-10
+						input#inputDetailimg1.form-control(type="text",name="cake[detail_img1]")
+				.form-group
+					label.col-sm-2.control-label(for="inputDetailImg2") 详情页副图2
+					.col-sm-10
+						input#inputDetailimg2.form-control(type="text",name="cake[detail_img2]")
+				.form-group
+					label.col-sm-2.control-label(for="inputShopcarimg") 购物车图标
+					.col-sm-10
+						input#inputShopcarimg.form-control(type="text",name="cake[shopcar_img]")
+				//-.form-group
+					label.col-sm-2.control-label(for="uploadPoster") 海报上传
+					.col-sm-10
+						input#uploadPoster(type="file",name="uploadPoster")
+				
+				.form-group
+					.col-sm-offset-2.col-sm-10
+						button.btn.btn-default(type="submit") 录入
+			form.form-horizontal(method="post", action="/test", enctype="multipart/form-data")
+				.form-group
+					label.col-sm-2.control-label(for="uploadPoster") 海报上传
+					.col-sm-10
+						input#uploadPoster(type="file",name="uploadPoster")
+						button.btn.btn-default(type="submit") 录入
+	script(src='/build/admin.min.js')

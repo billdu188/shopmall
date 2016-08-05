@@ -1,23 +1,39 @@
 {
-  "name": "shopmall",
+  "name": "cakeshop",
   "version": "0.0.1",
   "description": "\"\"\u001b[Dnull\"\u001b[A\u001b[A\u001b[B\u001b[B",
   "main": "app.js",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
+    "connect-mongo": "^1.2.0",
+    "cookie-parser": "^1.4.2",
     "express": "^4.13.4",
-    "jade": "^1.11.0",
+    "express-session": "^1.13.0",
+    "grunt-mocha-test": "^0.12.7",
     "moment": "^2.11.2",
     "mongoose": "^4.4.6",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "pug": "^2.0.0-beta4",
     "serve-static": "^1.10.2",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "grunt-concurrent": "^2.2.1"
+    "grunt": "^1.0.1",
+    "grunt-bootlint": "^0.10.1",
+    "grunt-concurrent": "^2.2.1",
+    "grunt-contrib-cssmin": "^3.6.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-nodemon": "^0.4.2",
+    "gulp": "^3.9.1",
+    "should": "^10.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "test.js"
   },
   "keywords": [
     "''\u001b[Dnode.js'"
@@ -31,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/billdu188/shopmall/issues"
   },
-  "homepage": "https://github.com/billdu188/shopmall#readme"
+  "homepage": "https://github.com/billdu188/shopmall#readme",
+  "directories": {
+    "test": "test"
+  }
 }

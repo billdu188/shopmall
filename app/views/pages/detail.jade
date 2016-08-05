@@ -1,0 +1,84 @@
+extend ../layout
+
+block content
+	.container
+		.buy-container
+			.type-list
+				.form-group
+					input#min(type="radio", check="checked", name="port", value="min")
+					label.radio-inline(for="min") 小号
+				.form-group
+					input#mid(type="radio", check="checked", name="port", value="mid",checked="checked")
+					label.radio-inline(for="mid") 中号
+				.form-group
+					input#max(type="radio", check="checked", name="port", value="max")
+					label.radio-inline(for="max") 大号
+			.buy-down
+				p#price-container
+					em ￥
+					span#staff-price #{cake.price}
+				a.bttn.order-btn 立即购买
+				a.btn.add-car-btn 加入购物车
+		.s-img-area
+			.s-img-area-inner
+				img(src="/img/sgoods/detail_page/#{cake.detail_main}", alt="")
+		.s-img-area
+			img(src="/img/sgoods/detail_page/#{cake.detail_img1}", alt="")
+		.s-img-area
+			img(src="/img/sgoods/detail_page/#{cake.detail_img2}", alt="")
+		.material-area
+			.material-inner
+				.ma-item1
+					.ma-title 原材料
+					.ma-intro #{cake.material}
+					.ma-ico 包含进口原料
+				.ma-item2
+					.ma-title 保鲜
+					.ma-intro 0-4度，保存24小时
+					.ma-ico 最佳温度
+				.ma-item3
+					.ma-title 送货
+					.ma-intro 杭州市内免费送货
+					.ma-ico 在收到后2-3小时内食用最佳,如对本食材有过敏经历者，请选择其他款蛋糕
+		//-e.row
+			.col-md-7
+				embed(src="#{cake.flash}", allwFullScreen="true", quality="high", width="720", height="600", align="middle", type="application/x-shockwave-flash")
+				.panel.panel-defatul
+					.panel-heading
+						h3 评论区
+					.panel-body
+						ul.media-list
+							each item in comments
+								li.media
+									.pull-left
+										a.comment(href="#comments", data-cid="#{item._id}", data-tid="#{item.from._id}")
+											img.media-object(src="#", style="width: 64px; height: 64px;")
+									.media-body
+										h4.media-headig #{item.from.name}
+										p #{item.content}
+										if item.reply && item.reply.length > 0
+											each reply in item.reply
+												.media
+													.pull-left
+														a.comment(href="#comments", data-cid="#{item._id}", data-tid="#{reply.from._id}")
+															img.media-object(src="#", style="width: 64px; height: 64px;")
+													.media-body
+														h4.media-heading 
+															| #{reply.from.name}
+															span.text-info &nbsp;回复&nbsp;
+															| #{reply.to.name}:
+														p #{reply.content}
+									hr
+						#comments
+							form#commentForm(method="POST", action="/user/comment")
+								if user
+									input(type='hidden', name='comment[cake]', value="#{cake._id}")
+									input(type='hidden', name='comment[from]', value="#{user._id}")
+									.form-group
+										textarea.form-control(name="comment[content]", row="3")					
+										button.btn.btn-primary(type="submit") 提交
+								else
+									.form-group
+										a.navbar-link(href="#", data-toggle="modal", data-target="#signinModal") 登录后评论
+			.col-md-5			
+	script(src='/build/admin.min.js')

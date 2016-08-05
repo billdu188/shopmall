@@ -1,0 +1,18 @@
+.container-main{
+	height: 400px;
+}
+
+.footer-container {
+	width: 960px;
+	margin: 0 auto;
+	
+}
+.footer-container ul {
+	color: #979693;
+	font-size: 12px;
+}
+.footer-container ul li {
+	text-align: center;
+	 margin: 3px auto;
+}
+	 

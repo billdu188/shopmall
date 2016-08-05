@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+	.container
+		include ../../../public/widget/carousel.html
+		.row
+			each cat in categories
+				.panel.panel-default
+					.panel-heading
+						h3 
+						a(href='/results?cat=#{cat._id}&p=0') #{cat.name}
+					.panel-body
+						if cat.cakes && cat.cakes.length > 0
+							each item in cat.cakes
+								.col-md-2
+									.thumbnail
+										a(href="/cake/#{item._id}")
+											img(src="/img/sgoods/home/#{item.poster}", alt="#{item.name}")
+										.caption
+											h3 #{item.name}
+											p #{item.intro}
+											p: a.btn.btn-primary(href="/cake/#{item._id}", role="button") 详情
+			

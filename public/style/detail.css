@@ -1,0 +1,145 @@
+/* 详情页 */
+* {
+	padding: 0;
+	margin: 0;
+}
+li,a {
+	list-style: none;
+	text-decoration: none;
+}
+.s-img-area {
+	overflow: hidden;
+	background: #f7f5f5;
+	 padding: 0 ; 
+	border-bottom: 1px solid #c2beb6;
+	width: 100%;
+	height: 585px;
+	display: block;
+
+}
+.s-img-area-inner {
+
+}
+.buy-container {
+	position: absolute;
+	top: 240px;
+	z-index: 10;
+	width: 350px;
+	height: 400px;
+	left: 60%;
+	
+
+}
+.buy-container .type-list {
+	border-bottom: 1px solid #CBC8C8;
+	background: #FFFFFF;
+	padding-bottom: 5px;
+}
+.buy-container input {
+	margin-left: -20px;
+	margin: 16px 16px 0 10px;
+}
+.buy-container label {
+	/* padding-left: 20px; */
+	cursor: pointer;
+	margin-left: -20px;
+}
+/* .buy-area {
+	width: 300px;
+	border: 1px solid #e8e8e8;
+	margin-left: 650px;
+
+} */
+.buy-down {
+	background: #fbfbfb;
+	width: 350px;
+	padding-bottom: 20px;
+}
+#price-container {
+	color: #333;
+	font-size: 26px;
+	font-weight: bold;
+	margin-left: 36%; 
+	padding-top: 20px;
+	
+}
+#staff-price {
+
+}
+.buy-down a {
+	height: 60px;
+	width: 30%;
+	line-height: 25px;
+	text-align: center;
+	padding-top: 20px;
+	margin: 10px auto 0 auto;
+	font-size: 16px;
+	border-radius: 6px;
+	display: block;
+	color: black;
+	cursor: pointer;
+}
+#order-btn {
+	color: white;
+	text-decoration: none;
+	background: red;
+}
+#add-cart-btn {
+	background: #e4e4e4;
+	
+}
+
+.material-area {
+	height: 220px;
+	position: relative;
+	border-bottom: 1px solid #2A2A2A ;
+}
+.material-inner {
+	height: 120px;
+	margin: 0 auto;
+	position: relative;
+}
+.ma-item1, .ma-item2,.ma-item3 {	 
+	position: absolute;
+	top: 50px;
+	width: 300px;
+	border-right: 1 solid black;
+	
+}
+.ma-item1 {
+	left: 100px;
+	
+}
+.ma-item2 {
+	left: 420px;
+	
+}
+.ma-item3 {
+	left: 720px;
+}
+.ma-title {
+	width: 80px;
+	height: 24px;
+	margin: 0 auto;
+	color: white;
+	text-align: center;
+	border-radius: 10px;
+	background: #F8AD52;
+}
+.ma-item2 .ma-title {
+	background: #69FFA0;
+}
+.ma-item3 .ma-title {
+	background: #1593FC;
+}
+.ma-intro {
+	width: 300px;
+	height: 25px;
+	margin: 20px auto;
+	text-align: center;
+}
+.ma-ico {
+	width: 300px;
+	height: 25px;
+	text-align: center;
+}

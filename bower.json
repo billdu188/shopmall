@@ -1,6 +1,6 @@
 {
   "name": "project_01",
-  "description": "a movie",
+  "description": "a minishop",
   "main": "app.js",
   "authors": [
     "\"mark\""
@@ -23,6 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.4"
   }
 }

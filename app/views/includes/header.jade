@@ -1,0 +1,72 @@
+.navbar.navbar-default.navbar-fixed-top
+	.container
+		//-.navbar-header
+			h1
+				img.img-thumbnail(src="http://s1.static.mescake.com/img/n-logo.png")
+		if user
+			p.navbar-text.navbar-right
+				span 欢迎您,#{user.name}
+				span &nbsp;|&nbsp;
+				a.navbar-link(href="/logout") 退出
+				span &nbsp;|&nbsp;
+				a.navbar-link(href="/order") 订单
+				span &nbsp;|&nbsp;
+				a(href='/shopcar') 购物车
+					span.badge(style="background:#43FC91;") #{user.sumGoods}
+				//-a.navbar-link(href='/shopcar') 购物车
+				//-input.cart-ico(type="text", readonly="readonly", value="0" style="display:inline-block; width:23px;height:23px; background:#48FD98; position:relative;top:2px; left:3px; border:0px; border-radius:6px; text-align:center; color:white;")
+		else
+			p.navbar-text.navbar-right
+				a.navbar-link(href="#", data-toggle="modal", data-target="#signupModal") 注册
+				span &nbsp;|&nbsp;
+				a.navbar-link(href="#", data-toggle="modal", data-target="#signinModal") 登录
+				span &nbsp;|&nbsp;
+				a.navbar-link(href="/order") 订单
+				span &nbsp;|&nbsp;
+				a.navbar-link(href='/shopcar') 购物车
+					span.badge(style="background:#43FC91;") 0
+
+#signupModal.modal.fade
+	.modal-dialog
+		.modal-content
+			form(method="POST", action="/user/signup")
+				.modal-header 注册
+				.modal-body
+					.form-group
+						label(for="signupName") 用户名
+						input#signupName.form-control(name="user[name]", type="text")
+					.form-group
+						label(for="signupPassword") 密码
+						input#signupName.form-control(name="user[password]", type="text")
+				.modal-footer
+					button.bt.btn-default(type="button", data-dismiss="modal") 关闭
+					button.bt.btn-success(type="submit") 提交
+#signinModal.modal.fade
+	.modal-dialog
+		.modal-content
+			form(method="POST", action="/user/signin")
+				.modal-header 登录
+				.modal-body
+					.form-group
+						label(for="signinName") 用户名
+						input#signinName.form-control(name="user[name]", type="text")
+					.form-group
+						label(for="signinPassword") 密码
+						input#signinName.form-control(name="user[password]", type="text")
+				.modal-footer
+					button.bt.btn-default(type="button", data-dismiss="modal") 关闭
+					button.bt.btn-success(type="submit") 提交
+.container
+	.row
+		.page-header.clearfix
+			h1
+				a.navbar-link(href='/')
+					img.img-thumbnail(src="/img/n-logo1.png")  
+			.col-md-4
+				small 美食美刻，好心情！
+			.col-md-8
+				form(method='GET', action='/results')
+					.input-group.col-sm-4.pull-right
+						input.form-control(type='text', name='q')
+						span.input-group-btn
+							button.btn.btn-default(type='submit') 搜索

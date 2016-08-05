@@ -1,0 +1,37 @@
+extend ../layout
+
+block content
+	.container
+		.row
+			p 我的订单
+			table.table.table-hover.table-bordered
+				thead
+					tr
+						th 商品
+						th 单价
+						th 数量
+						th 小计
+						th 操作
+				tbody
+					if shop.cake && shop.cake.length > 0
+						each item in shop.cake
+							tr(class="item-id-#{item._id}")
+								td #{item.name}
+								td ￥#{item.price}元 
+								td 
+									button.btn.btn-default.plus(type="button", data-id="#{item._id}")
+										span.glyphicon.glyphicon-plus
+									input(class="numGoods-#{item._id}", type="text", value="#{item.num}", readonly="readonly",style="width:30px; text-align:center;")
+									button.btn.btn-default.minus(type="button", data-id="#{item._id}")
+										span.glyphicon.glyphicon-minus
+								td.oneTotal(class="oneTotal-#{item._id}") ￥#{item.price * item.num}元						
+								td
+									button.btn.btn-danger.del(type="button", data-id="#{item._id}") 删除
+			table.table
+				p 总计：￥
+					span.sumValue #{user.sumValue}元
+		.btn-group.btn-group-justified(role="group",style="float:right;margin:30px 10px;")
+			a(href="/", role="button",style="display:inline-block;") 继续购物
+			a(href="/order", role="button",style="display:inline-block;float:right;") 提交订单
+		
+	script(src='/build/admin.min.js')

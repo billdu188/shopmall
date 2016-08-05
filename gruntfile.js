@@ -9,14 +9,32 @@ module.exports = function(grunt) {
 			},
 			js: {
 				files: ['public/js/**', 'models/**/*.js', 'schemas/**/*.js'],
-				//语法检查:tasks: ['jshint'],
+				//tasks: ['jshint'],
 				options: {
 					livereload: true
+					
 				}
 			}
 		},
-
-		modemon: {
+		//jshint: {
+			//all: ['Gruntfile.js', 'public/js/**', 'models/**/*.js', 'schemas/**/*.js']
+		//},
+		
+		uglify: {
+			development: {
+				files: {
+					'public/build/admin.min.js': ['public/js/admin.js','detail.js','order.js','shopcar.js']
+				}
+			}
+		},
+		cssmin: {
+			compress: {
+				files: {
+					'public/build/admin.min.css':'public/style/*.css'
+				}
+			}
+		},
+		nodemon: {
 			dev: {
 				options: {
 					file: 'app.js',
@@ -29,23 +47,44 @@ module.exports = function(grunt) {
 					env: {
 						PORT: 3000
 					},
-					cwd: _dirname
+					cwd: __dirname
 				}
 			}
 		},
-
+		bootlint: {
+			options: {
+				relaxerror: [],
+				showallerrors: false,
+				stoponerrors: false,
+				stoponwarning: false
+			},
+			files: ['public/**']
+		},
+		mochaTest: {
+			options: {
+				reporter: 'spec'
+			},
+			src: ['test/**/*.js']
+		},
 		concurrent: {
 			tasks: ['nodemon', 'watch'],
 			options: {
 				logConcurrentOutput: true
 			}
-		}
+		},
+
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-watch')
 	grunt.loadNpmTasks('grunt-nodemon')
 	grunt.loadNpmTasks('grunt-concurrent')
+	grunt.loadNpmTasks('grunt-contrib-uglify')
+	grunt.loadNpmTasks('grunt-contrib-cssmin')
+	grunt.loadNpmTasks('grunt-bootlint')
+	grunt.loadNpmTasks('grunt-mocha-test')
+	//grunt.loadNpmTasks('grunt-contrib-jshint')
 
 	grunt.option('force', true)
-	grunt.registerTask('default', ['concurrent'])
+	grunt.registerTask('default', ['uglify','cssmin','concurrent'])
+	grunt.registerTask('test', ['mochaTest'])
 }
