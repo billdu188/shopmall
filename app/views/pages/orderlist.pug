@@ -16,11 +16,11 @@ block content
 				tbody
 					if order && order.length > 0
 						each item in order
-							tr(class="item-id-#{item._id}")
+							tr(class=`item-id-${item._id}`)
 								td #{item.ordernum}
 								td #{moment(item.meta.updateAt).format('MM/DD/YYY')}
 								td #{item.goods}
 								td #{item.totalValue}
 								td #{item.status}
 								td
-									button.btn.btn-danger(type="button", data-id="#{item._id}") 取消
+									button.btn.btn-danger(type="button", data-id=`${item._id}`) 取消

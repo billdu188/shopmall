@@ -13,9 +13,9 @@ var dbUrl = 'mongodb://dubq:7758258@ds145315.mlab.com:45315/minishop'
 app.use(express.static(path.join(__dirname, '/public')))
 mongoose.connect(dbUrl)
 app.set('views', './app/views/pages')
-app.set('view engine', 'jade')
+app.set('view engine', 'pug')
 app.use(bodyParser.urlencoded({extended: true }))
-app.use(cookieParser())
+app.use(cookieParser()) 
 app.use(expressSession({
 	secret: 'minishop',
 	store: new mongoStore({ 

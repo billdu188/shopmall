@@ -11,11 +11,11 @@ block content
 						each item in cakes
 							.col-md-2
 								.thumbnail
-									a(href="/cake/#{item._id}")
-										img(src="#{item.poster}", alt="#{item.title}")
+									a(href=`/cake/${item._id}`)
+										img(src=`${item.poster}`, alt=`${item.title}`)
 									.caption
 										h3 #{item.title}
-										p: a.btn.btn-primary(href="/cake/#{item._id}", role="button") 观看预告片
+										p: a.btn.btn-primary(href=`/cake/${item._id}`, role="button") 观看预告片
 			ul.pagination
 				- for (var i=0; i<totalPage; i++) {
 					- if (currentPage === (i+1)) {	
@@ -24,7 +24,7 @@ block content
 					- }
 					- else {
 						li
-							a(href='/results?#{query}&p=#{i}') #{i + 1}
+							a(href=`/results?${query}&p=${i}`) #{i + 1}
 					- }
 				- }
 			

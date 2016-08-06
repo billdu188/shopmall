@@ -15,29 +15,29 @@ block content
 				tbody
 					if agoods.cake && agoods.cake.length > 0
 						each item in agoods.cake
-							tr(class="item-id-#{item._id}")
+							tr(class=`item-id-${item._id}`)
 								td #{item.name}
 								td ￥#{item.price}元
 								td
-									button.btn.btn-default.plus(type="button", data-id="#{item._id}")
+									button.btn.btn-default.plus(type="button", data-id=`${item._id}`)
 										span.glyphicon.glyphicon-plus
-									input(class="numGoods-#{item._id}", type="text", value="#{item.num}",style="width:30px; text-align:center", readonly="readonly")
-									button.btn.btn-default.minus(type="button", data-id="#{item._id}")
+									input(class=`numGoods-${item._id}`, type="text", value=`${item.num}`,style="width:30px; text-align:center", readonly="readonly")
+									button.btn.btn-default.minus(type="button", data-id=`${item._id}`)
 										span.glyphicon.glyphicon-minus
-								td.oneTotal(class="oneTotal-#{item._id}") ￥#{item.price*item.num}元
+								td.oneTotal(class=`oneTotal-${item._id}`) ￥#{item.price*item.num}元
 								td
-									button.btn.btn-danger.del(type="button", data-id="#{item._id}") 删除
+									button.btn.btn-danger.del(type="button", data-id=`${item._id}`) 删除
 			p 总计
 				span.sumValue #{user.sumValue}元
 			p 送货信息
 			.infolist
 				if user.deliveinfo && user.deliveinfo.length > 0
 					each item in user.deliveinfo
-						ul.info(class="info-#{item._id}",style="width:200px;height:100px;display:inline-block;background:#F0F0F0;")
+						ul.info(class=`info-${item._id}`,style="width:200px;height:100px;display:inline-block;background:#F0F0F0;")
 							li 姓名：#{item.name}
 							li 联系方式：#{item.phone}
 							li 地址：#{item.address}
-							input.remInfo(type="button",data-id="#{item._id}", value="删除")
+							input.remInfo(type="button",data-id=`${item._id}`, value="删除")
 			.form.form-horizontal#deliveinfo
 				.form-group
 					label.col-sm-2.control-label 送货地址

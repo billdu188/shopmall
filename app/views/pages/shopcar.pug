@@ -15,18 +15,18 @@ block content
 				tbody
 					if shop.cake && shop.cake.length > 0
 						each item in shop.cake
-							tr(class="item-id-#{item._id}")
+							tr(class=`item-id-${item._id}`)
 								td #{item.name}
 								td ￥#{item.price}元 
 								td 
-									button.btn.btn-default.plus(type="button", data-id="#{item._id}")
+									button.btn.btn-default.plus(type="button", data-id=`${item._id}`)
 										span.glyphicon.glyphicon-plus
-									input(class="numGoods-#{item._id}", type="text", value="#{item.num}", readonly="readonly",style="width:30px; text-align:center;")
-									button.btn.btn-default.minus(type="button", data-id="#{item._id}")
+									input(class=`numGoods-${item._id}`, type="text", value=`${item.num}`, readonly="readonly",style="width:30px; text-align:center;")
+									button.btn.btn-default.minus(type="button", data-id=`${item._id}`)
 										span.glyphicon.glyphicon-minus
-								td.oneTotal(class="oneTotal-#{item._id}") ￥#{item.price * item.num}元						
+								td.oneTotal(class=`oneTotal-${item._id}`) ￥#{item.price * item.num}元						
 								td
-									button.btn.btn-danger.del(type="button", data-id="#{item._id}") 删除
+									button.btn.btn-danger.del(type="button", data-id=`${item._id}`) 删除
 			table.table
 				p 总计：￥
 					span.sumValue #{user.sumValue}元
