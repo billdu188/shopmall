@@ -8,7 +8,7 @@ var mongoose = require('mongoose')
 var morgan = require('morgan')
 var port = process.env.PORT || 3000
 var app = express()
-var dbUrl = 'mongodb://localhost/minishop'
+var dbUrl = 'mongodb://dubq:7758258@ds145315.mlab.com:45315/minishop'
 
 app.use(express.static(path.join(__dirname, '/public')))
 mongoose.connect(dbUrl)
