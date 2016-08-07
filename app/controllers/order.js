@@ -19,12 +19,14 @@ exports.detail = function(req, res) {
 						})
 					});
 				}
-
-				res.render('order', {
-					title: '订单详情',
-					order: order,
-					agoods: agoods
-				})
+				else{
+					res.render('order', {
+						title: '订单详情',
+						order: order,
+						agoods: agoods
+					})
+				}
+				
 			})
 		})
 		
