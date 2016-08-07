@@ -68,7 +68,7 @@ exports.add = function(req, res) {
  
 exports.del= function(req, res) {
 	var _user = req.session.user;
-	var cakeId = req.body.cakeId;
+	var cakeId = req.query.id;
 	
 	if(_user) {
 		var userId = _user._id;
