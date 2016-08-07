@@ -23,7 +23,10 @@ module.exports = function(grunt) {
 		uglify: {
 			development: {
 				files: {
-					'public/build/admin.min.js': ['public/js/admin.js','detail.js','order.js','shopcar.js']
+					'public/build/admin.min.js': 'public/js/admin.js',
+					'public/build/order.min.js': 'public/js/order.js',
+					'public/build/detail.min.js': 'public/js/detail.js',
+					'public/build/shopcar.min.js': 'public/js/shopcar.js'
 				}
 			}
 		},
