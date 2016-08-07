@@ -76,8 +76,8 @@ exports.del= function(req, res) {
 			if (err) {
 				console.log(err)
 			}
-			shop.cake.id(cakeId).remove();
 			shop.sumGoods -= shop.cake.id(cakeId).num;
+			shop.cake.id(cakeId).remove();
 			shop.sumValue = 0;
 			for(var i=0; i<shop.cake.length;i++) {
 				shop.sumValue += shop.cake[i].price*shop.cake[i].num;

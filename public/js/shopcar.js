@@ -71,7 +71,6 @@ $(function() {
 			url: '/shopcar/list?id=' + id
 		})		
 		.done(function(results) {
-			console.log(results.success)
 			if (results.success === 1) {
 				if (tr.length > 0) {
 					console.log(id)
