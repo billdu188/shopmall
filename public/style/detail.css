@@ -66,7 +66,7 @@ li,a {
 #staff-price {
 
 }
-.buy-down a {
+.buy-down .btn {
 	height: 60px;
 	width: 30%;
 	line-height: 25px;
@@ -75,18 +75,17 @@ li,a {
 	margin: 10px auto 0 auto;
 	font-size: 16px;
 	border-radius: 6px;
-	display: block;
-	color: black;
+	display: block;	
 	cursor: pointer;
 }
-#order-btn {
+.order-btn {
 	color: white;
 	text-decoration: none;
 	background: red;
 }
-#add-cart-btn {
+.add-cart-btn {
 	background: #e4e4e4;
-	
+	color: black;
 }
 
 .material-area {
